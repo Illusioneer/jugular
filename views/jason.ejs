@@ -1,0 +1,26 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="http://documentcloud.github.io/underscore/underscore-min.js"></script>
+<script src="http://documentcloud.github.io/backbone/backbone-min.js"></script>
+
+<script>
+
+var Posts = Backbone.Model.extend({
+    defaults: {
+        "nid": "",
+		"create_stamp": "",
+		"update_stamp": "",
+		"publish_stamp": "",
+		"post_content":"",
+		"post_name":"",
+		"host_name": ""
+    }
+});
+
+PostList = Backbone.Collection.extend({
+  model: Posts,
+  value: null,
+  url: "/jason";
+});
+
+</script>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>Angular Feed</title>
+    </head>
+
+    <body>
+<img alt="test" src="/public/img/test.png">
+	<div ng-app="myApp">
+	  <div ng-controller="PeopleCtrl">
+	      <p>    Click <b><a ng-click="loadPeople()">here</a></b> to load data.</p>
+	      <table>
+		  <tr>
+		      <th>First Name</th>
+		      <th>Last Name</th>
+		  </tr>
+		  <tr ng-repeat="person in people.names">
+		      <td>{{person.firstName}}</td>
+		      <td>{{person.lastName}}</td>
+		  </tr>
+	      </table>
+	  </div>
+	</div>
+        
+        <script src="/public/js/angular.min.js"></script>
+        <script src="/public/js/ang1.js"></script>
+
+    </body>
+</html>
