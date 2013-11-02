@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
-
-    <head>
-        <meta charset="utf-8"/>
-        <title>Angular Feed</title>
-    </head>
-
-    <body>
-<img alt="test" src="/public/img/test.png">
-	<div ng-app="myApp">
-	  <div ng-controller="PeopleCtrl">
-	      <p>    Click <b><a ng-click="loadPeople()">here</a></b> to load data.</p>
-	      <table>
-		  <tr>
-		      <th>First Name</th>
-		      <th>Last Name</th>
-		  </tr>
-		  <tr ng-repeat="person in people.names">
-		      <td>{{person.firstName}}</td>
-		      <td>{{person.lastName}}</td>
-		  </tr>
-	      </table>
-	  </div>
-	</div>
-        
-        <script src="/public/js/angular.min.js"></script>
-        <script src="/public/js/ang1.js"></script>
-
-    </body>
+<head>
+<script src="../js/angular/angular.js"></script>
+<script src="../js/ang1.js"></script>
+</head>
+<body>
+  <div ng-app="myApp">
+    <h1>{{data.message}}</h1>
+      <div ng-controller="FirstCtrl">
+        <h1>{{data.message + " world"}}</h1>
+    <div>
+      <h5  style="color:{{data.color}}">Wrap me in a foundation component called {{spice}}</h5>
+      <input type="text" ng-model="data.message">
+      <input type="text" ng-model="data.color">
+    </div>
+  </div>
+    <div ng-controller="AddPostCtrl">
+      <h1>{{updateFromModel}}</h1>
+      <h1>Also known as: {{timeNow}}</h1>
+      <form ng-submit="submitPost()" ng-controller="SecondCtrl">
+	<input type="text" ng-model="blog.name" />
+	  <br />
+	<input type="text" ng-model="blog.email" />
+	<input type="submit"/>
+      </form>
+    </div>  
+  </div>
+</body>
 </html>

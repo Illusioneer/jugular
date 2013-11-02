@@ -4,7 +4,6 @@ var pg = require('pg');
 var url = require('url');
 var client = new pg.Client('postgres://master1:harper123@localhost:5432/mastercontrol');
 client.connect();
-//var email = require('../email');
 
 exports.blarg = function(req, res){
     pglib.getter(req, res);
@@ -18,7 +17,7 @@ exports.submit = function(req,res){
     var now = new Date() - 1;
     console.log("POSTING DATA: "+req);
     datum = [now,req.body.post.title, req.body.post.content, req.body.post.desc,0,'localhost', req.body.post.metadata];
-    client.query("INSERT INTO nodeposts(create_stamp, post_name, post_content,post_desc,author,host_name,metadata) values(to_timestamp($1), $2, $3, $4, $5, $6,$7)", datum);
+    client.query("INSERT INTO testdata(create_stamp, post_name, post_content,post_desc,author,host_name,metadata) values(to_timestamp($1), $2, $3, $4, $5, $6,$7)", datum);
     console.log("TITLE: "+datum);
 
     var maildata = {

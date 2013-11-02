@@ -14,6 +14,8 @@ module.exports=function(app){
         fs.rename(tempPath, targetPath, function(err) {
             if (err) throw err;
             console.log("Upload completed!");
+	    console.log("Not again!!");
+	    res.render('ang1', {title: 'You uploaded a damn file!'});
 	    //console.log(req.files.file);
         });
     } else {

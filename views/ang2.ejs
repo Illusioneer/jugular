@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="../js/angular/angular.min.js"></script>
+<script src="../js/angular/angular-sanitize.min.js"></script>
+<link href="../stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="../js/angular/bootstrap.min.js"></script>
+<script src="../js/ang2.js"></script>
+
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body>
+  <div ng-app="MyApp">
+    <div ng-controller="Control">
+       <form ng-submit="submitPost()">
+	<input type="text" ng-model="post.name" />
+	<br /><input type="text" ng-model="post.email" /><br />
+	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+	<script>
+	  tinymce.init({selector:'textarea'});
+	</script>
+	<div style="width:600px"><br /><textarea name="content" ng-model="post.entry"></textarea></div>
+	<br /><input type="submit"/>
+      </form>
+      <div class="pull-right"><h1>HERE GOES:</h1><br /><p ng-bind-html-unsafe="evil">{{evil}}</p></div>
+      <div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
