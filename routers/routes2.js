@@ -1,5 +1,5 @@
-var path = require('path'),
- fs = require('fs');
+var path = require('path')
+     ,fs = require('fs');
 
 module.exports=function(app){
   

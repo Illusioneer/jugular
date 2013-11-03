@@ -2,32 +2,37 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery.js"></script>
+<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 <script src="../js/angular/angular.min.js"></script>
 <script src="../js/angular/angular-sanitize.min.js"></script>
 <link href="../stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
 <script src="../js/angular/bootstrap.min.js"></script>
 <script src="../js/ang2.js"></script>
 
+<script>
+  tinymce.init({selector: "textarea", theme: "modern", plugins: [
+  "advlist autolink lists link image charmap print preview hr anchor pagebreak searchreplace wordcount visualblocks visualchars code fullscreen",
+  "insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor"],
+  toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor emoticons",
+  image_advtab: true});
+</script>
+
 <meta charset=utf-8 />
-<title>JS Bin</title>
+<title>New Entry</title>
 </head>
+
 <body>
   <div ng-app="MyApp">
     <div ng-controller="Control">
-       <form ng-submit="submitPost()">
-	<input type="text" ng-model="post.name" />
-	<br /><input type="text" ng-model="post.email" /><br />
-	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
-	<script>
-	  tinymce.init({selector:'textarea'});
-	</script>
-	<div style="width:600px"><br /><textarea name="content" ng-model="post.entry"></textarea></div>
-	<br /><input type="submit"/>
-      </form>
-      <div class="pull-right"><h1>HERE GOES:</h1><br /><p ng-bind-html-unsafe="evil">{{evil}}</p></div>
-      <div>
-      </div>
+    <form ng-submit="submitPost()">
+      <label>Name:</label><input type="text" ng-model="post.name" /><br />
+      <label>EMAIL:</label><input type="text" ng-model="post.email" /><br />
+      <br /><div style="width:800px"><textarea id="entry" ng-model="post.entry"></textarea><br /></div>
+      <br /><input type="submit"/>
+    </form>
+      
+    <div class="pull-right"><h1>LAST ENTRY:</h1><br /><div ng-bind-html="DangerousSnippet(evil)"></div></div>
     </div>
   </div>
 </body>
-</html>
+</html> 
