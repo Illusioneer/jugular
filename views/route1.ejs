@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AngularJS Routing example</title>
+  </head>
+ 
+  <body ng-app="sampleApp">
+ 
+    <div class="container">
+    <div class="row">
+    <div class="col-md-9">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th><th>Order No.</th><th>Details</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td><td>1234</td><td>15" Samsung Laptop</td>
+                <td><a href="#ShowOrder/1234">show details</a></td>
+              </tr>
+              <tr>
+                <td>2</td><td>5412</td><td>2TB Seagate Hard drive</td>
+                <td><a href="#ShowOrder/5412">show details</a></td>
+              </tr>
+              <tr>
+                <td>3</td><td>9874</td><td>D-link router</td>
+                <td><a href="#ShowOrder/9874">show details</a></td>
+              </tr>
+            </tbody>
+          </table>
+ 
+        <div ng-view></div>
+    </div>
+    </div>
+    </div>
+ 
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="js/route1.js"></script>
+ 
+  </body>
+</html>

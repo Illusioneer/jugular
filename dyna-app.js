@@ -18,6 +18,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use('/public/js', express.static(path.join(__dirname, '/public/js')));
 app.use('/public/img', express.static(path.join(__dirname, '/public/img')));
 app.use('/public/stylesheets', express.static(path.join(__dirname, '/public/stylesheets')));
+app.use('/public/partials', express.static(path.join(__dirname, '/public/partials')));
 
 app.use(express.bodyParser({uploadDir:'./tmp'}));
 
@@ -36,4 +37,3 @@ fs.readdirSync(routePath).forEach(function(file) {
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
-//app.listen(9123);

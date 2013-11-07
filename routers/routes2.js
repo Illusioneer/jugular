@@ -1,11 +1,15 @@
-var path = require('path')
-     ,fs = require('fs');
+var path = require('path'),
+ fs = require('fs');
 
 module.exports=function(app){
   
     app.get('/uploader',function(req,res){
        res.render('uploader', { title: 'Posting' });
     });
+    
+    app.get('/route1',function(req,res){
+       res.render('route1', { title: 'Route 53' });
+    });    
 
     app.post('/upload', function (req, res) {
     var tempPath = req.files.file.path,
