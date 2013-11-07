@@ -34,7 +34,6 @@ module.exports=function(app){
   });
   
   app.post('/submit', function(req,res){
-    
     db_write(req.body);
     console.log(req.body);
     res.json(req.body);

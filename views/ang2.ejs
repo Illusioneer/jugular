@@ -39,10 +39,10 @@ tinymce.init({
 });
 </script>
 	
-	<div style="width:600px"><br /><textarea name="content" ng-model="post.entry"></textarea></div>
+	<div style="width:600px"><br /><textarea id="editor" name="content" ng-model="post.entry"></textarea></div>
 	<br /><input type="submit"/>
       </form>
-      <div class="pull-right"><h1>HERE GOES:</h1><br /><p ng-bind-html-unsafe="evil">{{evil}}</p></div>
+      <div class="pull-right"><h1>HERE GOES:</h1><br /><div ng-bind-html="snippet"></div></div>
       <div>
       </div>
     </div>

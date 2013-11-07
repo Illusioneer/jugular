@@ -1,15 +1,17 @@
-var MyApp = angular.module("MyApp", []);
+var MyApp = angular.module("MyApp", ['ngSanitize']);
 
-MyApp.controller("Control", function($scope, $http, $location){
+MyApp.controller("Control", function($scope, $http, $location, $sce){
   
   $scope.blog = {name: 'Name', email: 'email'};
   $scope.post = {name: 'Blobbert', email: 'email', entry: '<h1>HEY</h1>'};
-  console.log("What up?");
+  $scope.renderSnippet = function(snippet) {
+    return $sce.trustAsHtml(snippet);
+  };
   
   $scope.submitPost = function () {
     $scope.blog.fields = {metadata: {}, content: {}};
     $scope.blog.fields['metadata'] = {"name":$scope.post['name'], "email":$scope.post['email']};
-    $scope.blog.fields['content'] = {"content":$scope.post.entry};
+    $scope.blog.fields['content'] = {"content":tinyMCE.get('editor').getContent()};
     $scope.blog.table = 'testdata';
     
     $http.post('/submit', $scope.blog).
@@ -17,8 +19,7 @@ MyApp.controller("Control", function($scope, $http, $location){
 	  var applied = setInterval( function()
 	  {
 	  if($scope.$$phase != '$digest' && $scope.$$phase != '$apply') {
-	    $scope.evil = $scope.blog.fields.content.content;
-	    console.log($scope.evil);
+	    $scope.snippet = $scope.renderSnippet(data.fields.content.content);
 	    $scope.$apply(); 
 	    clearInterval(applied);
 	    };
