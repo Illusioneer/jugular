@@ -15,7 +15,8 @@ var db_write = function(query) {
 	      console.log("SQL FAILURE:" + err + thequery);
 	    }
 	    else {
-//	      console.log("ENTRY SUCCESS");
+	      console.log("Entry success.");
+	      return("ENTRY SUCCESS");
 	    }
    });
 }
@@ -35,7 +36,7 @@ module.exports=function(app){
   
   app.post('/submit', function(req,res){
     db_write(req.body);
-    console.log(req.body);
+    console.log(query);
     res.json(req.body);
     
   });
